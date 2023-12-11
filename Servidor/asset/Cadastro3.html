@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('imagem2.png'); 
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .half {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function cadastro() {
+        console.log(document.getElementById('cnpj').value)
+        console.log(document.getElementById('email').value)
+        console.log(document.getElementById('senha').value)
+
+        cnpj = document.getElementById('cnpj').value
+        email = document.getElementById('email').value
+        senha = document.getElementById('senha').value
+
+        //     console.log('[checkName] - checkName');
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'localhost:5050/cadastroEmpresa', true); // TODO: Trocar para POST
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.timeout = 40000;
+        xhr.onreadystatechange = function(e) {
+            if (xhr.readyState === 4)
+            {
+                if (xhr.status === 200) 
+                {
+                    console.log("Success");
+                    return
+                } 
+                else 
+                {
+                    console.log("fail");
+                    return
+                }
+            }
+        }
+        xhr.ontimeout = function() {
+        };
+    
+        const data = {CNPJ: cnpj, NomeEmpresa: email, senha: senha};
+        xhr.send(JSON.stringify(data));
+        console.log(xhr);
+        }
+        
+    </script>
+</head>
+<body>
+
+    <div class="half">
+        <label for="cadastro">CADASTRE SUA EMPRESA</label>
+        <br>
+        <label for="nome">CNPJ:</label>
+        <input type="text" id="cnpj" name="cnpj" maxlength="14" required>
+
+        <label for="email">Empresa:</label>
+        <input type="text" id="email" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit" onclick="cadastro()">Cadastrar</button>
+    </div>
+
+</body>
+</html>

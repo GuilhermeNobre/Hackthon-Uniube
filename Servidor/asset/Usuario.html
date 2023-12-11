@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Usuário</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            height: 100vh;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            animation: lighting 8s infinite alternate;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .half {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .half1 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 17px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .half2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .half3 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(179, 177, 177, 0.9);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        #txtBusca{
+          float:left;
+          padding-left:5px;
+          font-size:18px;
+          border:none;
+          height:32px;
+          width:191px;
+        }
+
+        #btnBusca{
+          border:none;
+          float:left;
+          height:32px;
+          border-radius:0 7px 7px 0;
+          width:80px;
+          font-weight:bold;
+          background:#45a049;
+        }
+
+        #centralizar{
+          position:absolute; 
+          top:3%;
+          left:1%;
+        }
+
+        #centralizar1{
+          position:absolute; 
+          top:22%;
+          left:1%;
+        }
+
+        #centralizar2{
+          position:absolute; 
+          top:3%;
+          right:30%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+    <script>
+        cliente = [{"client_id":1,"nome_client":"Guilherme","empresa_client":"Gui","email":"gui@nobre","power_cap":44}]
+    </script>
+</head>
+<body>
+
+    <div class="half" id="centralizar">
+        <label>SEJA BEM VINDO, </label>
+        <button onclick="window.location.href='CadastroCliente.html'">Cadastrar Novo Usuário</button>
+    </div>
+    <div class="half1" id="centralizar1">
+      <input type="text" id="txtBusca" placeholder="Buscar..."/>
+      <button onclick="">Buscar</button>
+    </div>
+    <div class="half2" id="centralizar2">
+        <label>CLIENTES CADASTRADOS</label>
+        <br>
+        <div class="half3">
+            <label>Cliente: Guilherme</label>
+            <br>
+            <label>E-mail: gui@nobre</label>
+            <br> 
+            <label>Carga de Célula: 44</label>
+        </div> 
+    </div>
+</body>
+</html>
